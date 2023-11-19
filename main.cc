@@ -57,8 +57,9 @@ int main(int argc, char **argv)
 
         // now sort the index and write the contents to index file.
         // now other programs can use binary search when doing
-        // queries for this key. however, if the source database
-        // were to change, the index will have to be rebuilt
+        // queries for this key and can iterate through the
+        // database in sorted order by using the index. however, if
+        // the source database were to change, the index will have to be rebuilt
         std::sort(index.begin(), index.end());
         for (auto p : index)
                 fprintf(idxfp, "%s %ld\n", p.first.c_str(), p.second);
